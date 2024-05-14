@@ -1,3 +1,5 @@
+Python course final project
+
 Welcome to the bodyweight fitness helper. This program assists in learning 
 various bodyweight exercises that target all the muscle groups in your body, 
 starting from the very basics! So far, only squats have been implemented.
