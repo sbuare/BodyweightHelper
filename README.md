@@ -10,7 +10,7 @@ user interface that can cleanly display the information in a format that is dige
 which can help the user more easily begin the exercises."""
 
 Interface of the program
-	Opens to above welcome script.
-    Options:
+- Opens to above welcome script.
+- Options:
       - Create a workout plan
       - Display a workout plan
