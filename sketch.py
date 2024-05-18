@@ -1,29 +1,9 @@
 from workout import Workout
 from exercise import Exercise
+import sys
 
 user_workout_plans = []
-
-def main_menu():
-    print('Welcome')
-    main_menu_str = ('Select options:\n'
-                     '\t1. Create workout\n'
-                     '\t2. View workout\n'
-                     '\t3. Log workout\n')
-    menu = int(input(main_menu_str))
-
-    if menu == 1:
-        print('Bringing you to creation menu...')
-        # call creation funct here
-    elif menu == 2:
-        print('Displaying workouts...')
-        # call viewing funct here
-    elif menu == 3:
-        print('Bringing you to logging menu...')
-        # call logging funct here
-    else:
-        print('Invalid input. Please try again')
-        main_menu()
-
+global_inp = 0
 
 def display_plans():
     global user_workout_plans
@@ -31,15 +11,79 @@ def display_plans():
     print('Workout plans:\n')
     for plan in user_workout_plans:
         plan.preview()
-      
-my_squats = Exercise('Squats', 3)
-my_pullups = Exercise('Pullups', 1)
-my_exercises = [my_squats, my_pullups]
 
-my_first_workout = Workout('First workout', '1-1-1', my_exercises, [5, 4, 4])
-user_workout_plans.append(my_first_workout)
+def exit():
+    sys.exit('Thank you for using the Bodyweight Helper :)')
 
-my_first_workout.display()
+def create():
+    # TODO: User interaction returning new Workout object
+    # Store workout information in file
+
+    global global_inp
+    
+    print('\nCreation menu')
+    print('Select options: ')
+    print('\t1. Create workout')
+    print('\t2. Main menu')
+
+    global_inp = int(input())
+
+    if global_inp == 1:
+        # TODO: creation process
+        print('Workout created.')
+        create()
+    elif global_inp == 2 :
+        return
+    else:
+        if global_inp == -1:
+            exit()
+        else:
+            print('Invalid input. Please try again.')
+            create()
+
+def view():
+    # TODO: Display workouts
+    # Actual print()s will be in Workout class
+    # view() will create the user interaction loops for selecting what to display
+    pass
+
+def log():
+    # TODO: Prompt selection of workout
+    # Display workout, ask for confirmation
+    # Update workout info
+    pass
+
+def main_menu():
+    global global_inp
+    
+    print('\nMain menu')
+    main_menu_str = ('Select options:\n'
+                     '\t1. Create workout\n'
+                     '\t2. View workout\n'
+                     '\t3. Log workout\n')
+    
+    global_inp = int(input(main_menu_str))
+
+    if global_inp == 1:
+        create()
+    elif global_inp == 2:
+        view()
+    elif global_inp == 3:
+        log()
+    else:
+        if global_inp == -1:
+            exit()
+        else:
+            print('Invalid input. Please try again.')
+            main_menu()
+
+
+if __name__ == '__main__':
+    print('Welcome to the BodyweightHelper :)')
+    print('To exit the program, enter -1.')
+    
+    while global_inp != -1:
+        main_menu()
 
 
 

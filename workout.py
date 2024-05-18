@@ -27,6 +27,5 @@ class Workout:
                 f'\n Routine:' 
                 f'\n\t10 minute warm up (dynamic stretching)'
                 f'{routine_strings}'
-                f'\n\t10 minute cool down (static stretching)'
-                f'\n Done, congrats!')
+                f'\n\t10 minute cool down (static stretching)')
         print(disp)
