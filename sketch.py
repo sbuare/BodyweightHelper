@@ -12,7 +12,13 @@ def display_plans():
     for plan in user_workout_plans:
         plan.preview()
 
+def clear():
+    # \033[3;1H moves cursor to row 3 col 1
+    # \033[0J clears from cursor to end
+    print(u'\033[3;1H\033[0J')
+
 def exit():
+    clear()
     sys.exit('Thank you for using the Bodyweight Helper :)')
 
 def create():
@@ -21,7 +27,8 @@ def create():
 
     global global_inp
     
-    print('\nCreation menu')
+    clear()
+    print('Creation menu')
     print('Select options: ')
     print('\t1. Create workout')
     print('\t2. Main menu')
@@ -32,7 +39,7 @@ def create():
         # TODO: creation process
         print('Workout created.')
         create()
-    elif global_inp == 2 :
+    elif global_inp == 2:
         return
     else:
         if global_inp == -1:
@@ -56,7 +63,8 @@ def log():
 def main_menu():
     global global_inp
     
-    print('\nMain menu')
+    clear()
+    print('Main menu')
     main_menu_str = ('Select options:\n'
                      '\t1. Create workout\n'
                      '\t2. View workout\n'
