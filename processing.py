@@ -9,8 +9,6 @@ from workout import Workout
 
 def create():
   
-    global user_workout_plans
-
     name = input('What would you like to name this workout?\n')
     todays_date = date.today()
 
