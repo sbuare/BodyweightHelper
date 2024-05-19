@@ -32,7 +32,9 @@ class Exercise:
             info_str += '\n'
         
         return info_str
-
-            
+    
+    @staticmethod
+    def get_max_diff(exer_name):
+        return len(progressions[exer_name])
             
     
