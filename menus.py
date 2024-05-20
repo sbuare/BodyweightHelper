@@ -1,39 +1,43 @@
 
 # menus.py
 
-# FIXME: Replace all recursive calls with while True w/ breaks!
-
-from processing import create
+from processing import create, view, log
 from utils import clear, exit, handle_error
 
-global_inp = 0
 exit_str = 'Thank you for using the Bodyweight Helper :)'
 
 def header():
     print('Welcome to the BodyweightHelper :)')
     print('To exit the program, enter -1.')
 
+
 def creation_menu():
     # TODO: Store workout information in file
     clear()
     header()
-    print('Creation menu')
+    print('\nCreation menu')
     print('Select options: ')
     print('\t1. Create workout')
     print('\t2. Main menu')
 
     
-def view_menu():
-    # TODO: Display workouts
-    # Actual print()s will be in Workout class
-    # view() will create the user interaction loops for selecting what to display
-    pass
+def view_menu():  
+    clear()
+    header()
+    print('\nView menu')
+    print('Select options:')
+    print('\t1. View workouts')
+    print('\t2. Main menu')
+                         
 
 def log_menu():
-    # TODO: Prompt selection of workout
-    # Display workout, ask for confirmation
-    # Update workout info
-    pass
+    clear()
+    header()
+    print('\nLog menu')
+    print('Select options:')
+    print('\t1. Log workout')
+    print('\t2. Main menu')
+
 
 def main_menu():
     clear()
@@ -46,10 +50,7 @@ def main_menu():
         
         
 def main():
-
-    global global_inp
-    
-    
+     
     while True:
         try:
             
@@ -91,7 +92,18 @@ def main():
                     
                         # View menu section
                         view_menu()
-                        break
+                        global_inp = int(input())
+                        
+                        if global_inp == 1: # 1. View workouts
+                            clear()
+                            view()                            
+                        elif global_inp == 2: # 2. Main menu
+                            break
+                        else:
+                            if global_inp == -1: # -1. Exit program
+                                exit(exit_str)
+                            else:
+                                raise ValueError
                         
                     except Exception as e:
                         handle_error(e)
@@ -106,8 +118,19 @@ def main():
                         
                         # Log menu section
                         log_menu()
-                        break
+                        global_inp = int(input())
                         
+                        if global_inp == 1: # 1. Log workout
+                            clear()
+                            log()
+                        elif global_inp == 2: # 2. Main menu
+                            break
+                        else:
+                            if global_inp == -1: # -1. Exit program
+                                exit(exit_str)
+                            else:
+                                raise ValueError
+                                                
                     except Exception as e:
                         handle_error(e)
                         

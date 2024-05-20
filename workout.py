@@ -15,10 +15,11 @@ class Workout:
         Workout.user_workout_plans.append(self)
 
     def preview(self):
-        disp = (f' - {self.name}, created {self.date}.\n'
-                f'\tExercises: {self.exercises}, 3 sets of {self.routine}.')
-        print(disp)
-
+        print(f'{self.name}, created {self.date}.')
+        for exer in self.exercises:
+            print('\t', end='')
+            exer.view_summary() 
+            
     def display(self):
         routine_strings = ''
         for exer in self.exercises:
@@ -38,9 +39,12 @@ class Workout:
     
     @classmethod
     def display_plans(cls):
-        print('Workout plans:\n')
+        print('\nWorkout plans:')
+        i = 1
         for plan in cls.user_workout_plans:
+            print(f'{i}. ', end='')
             plan.preview()
+            i += 1
     
     def log(self):
         
@@ -78,20 +82,3 @@ class Workout:
         print()
         self.display()
   
-  
-if __name__ == '__main__':
-    
-    my_squats = Exercise('Squats', 3, [4, 4, 4])
-    my_pullups = Exercise('Pullups', 2, [8, 8, 8])
-    my_wo = Workout('my woahh', '1-1-1', [my_squats, my_pullups])
-
-    print(f'Max difficulty of squats: {my_squats.max_diff}')
-    print(f'Max difficulty of pullups: {my_pullups.max_diff}')
-    
-    my_wo.display()
-    print()
-    print('Logging:')
-    print()
-    my_wo.log()
-            
-            

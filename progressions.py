@@ -25,12 +25,26 @@ progressions = {
 
     'Pullups' : {
         1 : {
-            'name': 'Assisted pullup',
-            'desc': ('Try not to die')
+            'name': 'Leg assisted pull ups',
+            'desc': ('Place a chair under your pull up bar, and assist yourself '
+                     'with one leg as you pull your body up. The key here is that you '
+                     'control how much help you get from your assisting leg. '
+                     'Try to reduce this assistance over time. '
+                     'This can be done by placing just the tip of your '
+                     'toes on the chair under you.')
         },
         2 : {
-            'name': 'Pullup',
-            'desc': ('Die')
+            'name': 'Jackknife pull ups',
+            'desc': ('Place a high object under and in front of your pull up bar '
+                     '(a sturdy chair or -even better- a table). Placement is key '
+                     'for jackknife pull ups to be effective: ideally, the table or '
+                     'chair should be high enough for your legs to rest on it at 90 '
+                     'degrees or less to your torso, with your waist bent. '
+                     'Push with your heels into the chair or table and straighten '
+                     'your waist whilst bringing your chin to the bar.')
         }
     }
 }
+
+
+ 

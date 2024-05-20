@@ -9,6 +9,8 @@ from utils import clear, handle_error
 from workout import Workout
 
 
+# creation_menu helper functions
+
 def pick_exercises():
     # returns list of exercise names (str)
     
@@ -89,3 +91,47 @@ def create():
     
     print('Workout created.')
     return new_wo
+ 
+ 
+# view_menu helper functions
+
+def view():
+    view_str = 'Select a workout to see its details. -1 to go back.\n'
+        
+    while True:
+        try:
+            
+            Workout.display_plans()
+            view_inp = int(input(view_str))
+            
+            if view_inp == -1:
+                break
+            else:
+                selected_wkout = Workout.user_workout_plans[view_inp-1]
+                clear()
+                selected_wkout.display()
+            
+        except Exception as e:
+            handle_error(e)
+
+
+# log_menu helper functions
+
+def log():
+    log_str = 'Select a workout to log. -1 to go back. \n'
+    
+    while True:
+        try:
+            
+            Workout.display_plans()
+            log_inp = int(input(log_str))
+            
+            if log_inp == -1:
+                break
+            else:
+                selected_wkout = Workout.user_workout_plans[log_inp-1]
+                selected_wkout.log()
+    
+        except Exception as e:
+            handle_error(e)
+

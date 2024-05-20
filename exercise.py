@@ -14,7 +14,11 @@ class Exercise:
         self.diff_name = progressions[self.name][self.diff].get('name')
         self.desc = progressions[self.name][self.diff].get('desc')
         self.max_diff = len(progressions[self.name])
-        
+    
+    def view_summary(self):
+        disp = f'{self.diff_name}, routine: {self.routine}'
+        print(disp)
+    
     @staticmethod
     def info(exer_name):
         # returns exer_name's difficulties and descriptions from progressions
