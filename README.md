@@ -42,4 +42,5 @@ incrementally). The new workout is displayed so that the user knows what their n
 1. Include the rest of the exercises/variations so that the program can be 'complete'
 2. Organize the code better. Ex. make a function for all the repeated code in main() ?
 3. File i/o
-4. Learn GUI and add a GUI?????? I'm scared
+4. Add more information for the user, ex. video demonstrations found on the site and explanations for how to choose difficulty level
+5. Learn GUI and add a GUI?????? I'm scared
