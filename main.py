@@ -1,8 +1,8 @@
 
 # main.py
 
-from menus import main_menu
+from menus import main
 
 if __name__ == '__main__':
     
-    main_menu()
+    main()

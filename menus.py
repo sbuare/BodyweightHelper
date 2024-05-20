@@ -15,35 +15,13 @@ def header():
 
 def creation_menu():
     # TODO: Store workout information in file
-
-    global global_inp
-
     clear()
+    header()
     print('Creation menu')
     print('Select options: ')
     print('\t1. Create workout')
     print('\t2. Main menu')
 
-
-    try:
-        global_inp = int(input())
-
-        if global_inp == 1: # 1. Create workout
-            clear()
-            create()
-            creation_menu()
-        elif global_inp == 2: # 2. Main menu
-            main_menu()
-        else:
-            if global_inp == -1: # -1. Exit program
-                exit(exit_str)
-            else:
-                raise ValueError
-    
-    except Exception as e:
-        handle_error(e)
-        creation_menu()
- 
     
 def view_menu():
     # TODO: Display workouts
@@ -58,31 +36,91 @@ def log_menu():
     pass
 
 def main_menu():
-    global global_inp
-
     clear()
     header()
     print('\nMain menu')
-    main_menu_str = ('Select options:\n'
-                     '\t1. Create workout\n'
-                     '\t2. View workout\n'
-                     '\t3. Log workout\n')
-    
-    try:
-        global_inp = int(input(main_menu_str))
-    
-        if global_inp == 1:
-            creation_menu()
-        elif global_inp == 2:
-            view_menu()
-        elif global_inp == 3:
-            log_menu()
-        else:
-            if global_inp == -1:
-                exit(exit_str)
-            else:
-                raise ValueError
+    print('Select options:')
+    print('\t1. Create workout')
+    print('\t2. View workout')
+    print('\t3. Log workout')
         
-    except Exception as e:
-        handle_error(e)
-        main_menu()
+        
+def main():
+
+    global global_inp
+    
+    
+    while True:
+        try:
+            
+            # Main menu section
+            main_menu()
+            global_inp = int(input())
+
+            if global_inp == 1:
+                
+                
+                while True:
+                    try:
+                        
+                        # Creation menu section
+                        creation_menu() 
+                        global_inp = int(input())
+
+                        if global_inp == 1: # 1. Create workout
+                            clear()
+                            create()
+                        elif global_inp == 2: # 2. Main menu
+                            break
+                        else:
+                            if global_inp == -1: # -1. Exit program
+                                exit(exit_str)
+                            else:
+                                raise ValueError
+
+                    except Exception as e:
+                        handle_error(e)
+            
+
+            
+            elif global_inp == 2:
+                
+                
+                while True:
+                    try:
+                    
+                        # View menu section
+                        view_menu()
+                        break
+                        
+                    except Exception as e:
+                        handle_error(e)
+
+
+                        
+            elif global_inp == 3:
+                
+                
+                while True:
+                    try:
+                        
+                        # Log menu section
+                        log_menu()
+                        break
+                        
+                    except Exception as e:
+                        handle_error(e)
+                        
+                        
+                        
+            else:
+                if global_inp == -1:
+                    exit(exit_str)
+                else:
+                    raise ValueError
+            
+        except Exception as e:
+            handle_error(e)
+            
+            
+        
